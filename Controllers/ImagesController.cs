@@ -78,5 +78,18 @@ namespace designyeuh_api.Controllers
             return new ObjectResult(countpage);
         }
 
+        [HttpPost]
+        [Route("Downloaded")]
+        public async Task<IActionResult> PostDownloaded ([FromQuery] Guid id)
+        {
+            var find = _context.Images.Where(x => x.Id == id).FirstOrDefault();
+            find.Downloaded = find.Downloaded + 1;
+
+            _context.Images.Update(find);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+        
+
     }
 }
