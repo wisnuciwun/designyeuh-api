@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,25 +11,25 @@ namespace designyeuh_api.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [EnableCors("CorsPolicy")]
-    public class ResumesController : Controller
+    public class ImagesController : Controller
     {
         private readonly MasterContext _context;
 
-        public ResumesController(MasterContext context)
+        public ImagesController(MasterContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public List<Resumes> GetResume()
+        public List<Images> GetImage()
         {
-            return _context.Resumes.ToList();
+            return _context.Images.ToList();
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostResumeData ([FromBody] Resumes input)
+        public async Task<IActionResult> PostImageData ([FromBody] Images input)
         {
-            var newVal = new Resumes();
+            var newVal = new Images();
             newVal.Id = new Guid();
             newVal.Author = input.Author;
             newVal.Filename = input.Filename;
@@ -37,7 +37,7 @@ namespace designyeuh_api.Controllers
             newVal.UploadDate = DateTime.Now;
             newVal.Title = input.Title;
 
-            _context.Resumes.Add(newVal);
+            _context.Images.Add(newVal);
             await _context.SaveChangesAsync();
             return Ok();
         }
@@ -46,7 +46,7 @@ namespace designyeuh_api.Controllers
         [Route("SortByTime")]
         public IActionResult SortResumesByTimeAscending()
         {
-            var data = _context.Resumes.OrderByDescending(x => x.UploadDate).Take(10);
+            var data = _context.Images.OrderByDescending(x => x.UploadDate).Take(10);
             return new ObjectResult(data);
         }
 
@@ -54,15 +54,15 @@ namespace designyeuh_api.Controllers
         [Route("SortByPopularity")]
         public IActionResult SortResumesByPopularityAscending()
         {
-            var data = _context.Resumes.OrderByDescending(x => x.Downloaded).Take(10);
+            var data = _context.Images.OrderByDescending(x => x.Downloaded).Take(10);
             return new ObjectResult(data);
         }
 
         [HttpGet]
-        [Route("AllResumes")]
+        [Route("AllImages")]
         public IActionResult Allresumes([FromQuery] int page, int perpage)
         {
-            var data =  _context.Resumes.OrderByDescending(x => x.UploadDate).ToList();
+            var data =  _context.Images.OrderByDescending(x => x.UploadDate).ToList();
 
             var offset = (page - 1) * perpage;
             var paged = data.Skip(offset).Take(perpage);
@@ -74,7 +74,7 @@ namespace designyeuh_api.Controllers
         [Route("Pages")]
         public IActionResult GetPage()
         {
-            var countpage = _context.Resumes.ToList().Count();
+            var countpage = _context.Images.ToList().Count();
             return new ObjectResult(countpage);
         }
 

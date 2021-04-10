@@ -10,9 +10,8 @@ namespace designyeuh_api.Models
 {
     public class MasterContext : DbContext
     {
-        
-        
        public DbSet<Resumes> Resumes {get; set;}
+       public DbSet<Images> Images {get; set;}
 
         public MasterContext(DbContextOptions<MasterContext> options) : base(options)
         {
