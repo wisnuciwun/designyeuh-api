@@ -44,7 +44,6 @@ TestResult.xml
 dlldata.c
 appsettings.Development.json
 appsettings.json
-Properties/launchsettings.json
 
 # DNX
 project.lock.json
