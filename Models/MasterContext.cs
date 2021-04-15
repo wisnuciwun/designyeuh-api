@@ -12,6 +12,8 @@ namespace designyeuh_api.Models
     {
        public DbSet<Resumes> Resumes {get; set;}
        public DbSet<Images> Images {get; set;}
+       public DbSet<Contributors> Contributors {get; set;}
+       public DbSet<Donations> Donations {get; set;}
 
         public MasterContext(DbContextOptions<MasterContext> options) : base(options)
         {
