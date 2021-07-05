@@ -15,6 +15,7 @@ namespace designyeuh_api.Models
         public string Twitter {get; set;}
         public string Creation {get; set;}
         public string ImgLink {get; set;}
+        public string Address {get; set;}
 
     }
 }

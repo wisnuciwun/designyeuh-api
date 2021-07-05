@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 using designyeuh_api.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace designyeuh_api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/dZ8&nkpB7RsWpkTv$sVIm9TTy")]
     [EnableCors("CorsPolicy")]
     public class ImagesController : Controller
     {
@@ -21,46 +22,69 @@ namespace designyeuh_api.Controllers
         }
 
         [HttpGet]
-        public List<Images> GetImage()
+        [Route("kn69JVJH1a")]
+        public List<Images> GetImages()
         {
             return _context.Images.ToList();
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostImageData ([FromBody] Images input)
+        [Route("dik25dWhR6")]
+        public async Task<IActionResult> PostImagesData ([FromBody] Images[] input)
         {
-            var newVal = new Images();
-            newVal.Id = new Guid();
-            newVal.Author = input.Author;
-            newVal.Filename = input.Filename;
-            newVal.Link = input.Link;
-            newVal.UploadDate = DateTime.Now;
-            newVal.Title = input.Title;
+              foreach (var x in input)
+            {
+                var newVal = new Images();
+                newVal.Id = new Guid();
+                newVal.Author = x.Author;
+                newVal.Filename = x.Filename;
+                newVal.Link = x.Link;
+                newVal.UploadDate = DateTime.Now;
+                newVal.Title = x.Title;
 
-            _context.Images.Add(newVal);
-            await _context.SaveChangesAsync();
+                _context.Images.Add(newVal);
+                await _context.SaveChangesAsync();
+            }
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("XVN9ZDAZSG")]
+        public async Task<IActionResult> PutDataImage([FromBody] Images input, [FromQuery] Guid id)
+        {
+            var findId = _context.Images.Where(x => x.Id == id).FirstOrDefault();
+            if(findId != null)
+            {
+                findId.Link = input.Link;
+                findId.Title = input.Title;
+                findId.UploadDate = input.UploadDate;
+                findId.Author = input.Author;
+                findId.Filename = input.Filename;
+                _context.Entry(findId).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+            }
             return Ok();
         }
 
         [HttpGet]
-        [Route("SortByTime")]
-        public IActionResult SortResumesByTimeAscending()
+        [Route("aCIJI6W7jp")]
+        public IActionResult SortImagesByTimeAscending()
         {
             var data = _context.Images.OrderByDescending(x => x.UploadDate).Take(10);
             return new ObjectResult(data);
         }
 
         [HttpGet]
-        [Route("SortByPopularity")]
-        public IActionResult SortResumesByPopularityAscending()
+        [Route("9gW6Mq21Q5")]
+        public IActionResult SortImagesByPopularityAscending()
         {
             var data = _context.Images.OrderByDescending(x => x.Downloaded).Take(10);
             return new ObjectResult(data);
         }
 
         [HttpGet]
-        [Route("AllImages")]
-        public IActionResult Allresumes([FromQuery] int page, int perpage)
+        [Route("wPiArezdNl")]
+        public IActionResult AllImages([FromQuery] int page, int perpage)
         {
             var data =  _context.Images.OrderByDescending(x => x.UploadDate).ToList();
 
@@ -71,16 +95,16 @@ namespace designyeuh_api.Controllers
         }
 
         [HttpGet]
-        [Route("Pages")]
-        public IActionResult GetPage()
+        [Route("NTX2ig1uX4")]
+        public IActionResult GetPageImages()
         {
             var countpage = _context.Images.ToList().Count();
             return new ObjectResult(countpage);
         }
 
         [HttpPost]
-        [Route("Downloaded")]
-        public async Task<IActionResult> PostDownloaded ([FromQuery] Guid id)
+        [Route("WKc7kvvUhp")]
+        public async Task<IActionResult> PostDownloadedImages ([FromQuery] Guid id)
         {
             var find = _context.Images.Where(x => x.Id == id).FirstOrDefault();
             find.Downloaded = find.Downloaded + 1;
@@ -89,7 +113,19 @@ namespace designyeuh_api.Controllers
             await _context.SaveChangesAsync();
             return Ok();
         }
-        
 
+        [HttpDelete]
+        [Route( ("dPSfTOsrEa"))]
+        public async Task<IActionResult> DeleteImage ([FromQuery] int id) {
+            var findId = await _context.Images.FindAsync(id);
+            if (findId == null) {
+                return NotFound ();
+            }
+
+            _context.Images.Remove (findId);
+            await _context.SaveChangesAsync ();
+
+            return Ok (findId);
+        }
     }
 }
