@@ -41,6 +41,7 @@ namespace designyeuh_api.Controllers
                 newVal.Link = x.Link;
                 newVal.UploadDate = DateTime.Now;
                 newVal.Title = x.Title;
+                newVal.Downloaded = 0;
 
                 _context.Resumes.Add(newVal);
                 await _context.SaveChangesAsync();
@@ -115,8 +116,8 @@ namespace designyeuh_api.Controllers
         }
 
         [HttpDelete]
-        [Route( ("5FCFfRqbqO"))]
-        public async Task<IActionResult> DeleteResume ([FromQuery] int id) {
+        [Route("5FCFfRqbqO")]
+        public async Task<IActionResult> DeleteResume ([FromQuery] Guid id) {
             var findId = await _context.Resumes.FindAsync(id);
             if (findId == null) {
                 return NotFound ();

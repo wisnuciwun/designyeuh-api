@@ -45,7 +45,7 @@ namespace designyeuh_api.Controllers
         }
 
         [HttpPut]
-        [Route("XVN9ZDAZSG")]
+        [Route("gBEK4VJDRV")]
         public async Task<IActionResult> PutDataDonation([FromBody] Donations input, [FromQuery] Guid id)
         {
             var findId = _context.Donations.Where(x => x.Id == id).FirstOrDefault();
@@ -60,8 +60,8 @@ namespace designyeuh_api.Controllers
         }
 
         [HttpDelete]
-        [Route( ("GGLNfjOCVx"))]
-        public async Task<IActionResult> DeleteDonation ([FromQuery] int id) {
+        [Route("GGLNfjOCVx")]
+        public async Task<IActionResult> DeleteDonation ([FromQuery] Guid id) {
             var findId = await _context.Donations.FindAsync(id);
             if (findId == null) {
                 return NotFound ();

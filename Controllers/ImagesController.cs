@@ -39,9 +39,10 @@ namespace designyeuh_api.Controllers
                 newVal.Author = x.Author;
                 newVal.Filename = x.Filename;
                 newVal.Link = x.Link;
+                newVal.Link_Mobile = x.Link_Mobile;
                 newVal.UploadDate = DateTime.Now;
                 newVal.Title = x.Title;
-
+                newVal.Downloaded = 0;
                 _context.Images.Add(newVal);
                 await _context.SaveChangesAsync();
             }
@@ -49,13 +50,14 @@ namespace designyeuh_api.Controllers
         }
 
         [HttpPut]
-        [Route("XVN9ZDAZSG")]
+        [Route("aNho5iy0Ve")]
         public async Task<IActionResult> PutDataImage([FromBody] Images input, [FromQuery] Guid id)
         {
             var findId = _context.Images.Where(x => x.Id == id).FirstOrDefault();
             if(findId != null)
             {
                 findId.Link = input.Link;
+                findId.Link_Mobile = input.Link_Mobile;
                 findId.Title = input.Title;
                 findId.UploadDate = input.UploadDate;
                 findId.Author = input.Author;
@@ -115,8 +117,8 @@ namespace designyeuh_api.Controllers
         }
 
         [HttpDelete]
-        [Route( ("dPSfTOsrEa"))]
-        public async Task<IActionResult> DeleteImage ([FromQuery] int id) {
+        [Route("dPSfTOsrEa")]
+        public async Task<IActionResult> DeleteImage ([FromQuery] Guid id) {
             var findId = await _context.Images.FindAsync(id);
             if (findId == null) {
                 return NotFound ();

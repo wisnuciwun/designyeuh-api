@@ -51,7 +51,7 @@ namespace designyeuh_api.Controllers
         }
 
         [HttpPut]
-        [Route("XVN9ZDAZSG")]
+        [Route("aTYM06FNYK")]
         public async Task<IActionResult> PutDataContributor([FromBody] Contributors input, [FromQuery] Guid id)
         {
             var findId = _context.Contributors.Where(x => x.Id == id).FirstOrDefault();
@@ -71,8 +71,8 @@ namespace designyeuh_api.Controllers
         }
 
         [HttpDelete]
-        [Route( ("tRJV7SoSx5"))]
-        public async Task<IActionResult> DeleteContributor ([FromQuery] int id) {
+        [Route("tRJV7SoSx5")]
+        public async Task<IActionResult> DeleteContributor ([FromQuery] Guid id) {
             var findId = await _context.Contributors.FindAsync(id);
             if (findId == null) {
                 return NotFound ();
