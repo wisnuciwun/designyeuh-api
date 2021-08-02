@@ -28,46 +28,6 @@ namespace designyeuh_api.Controllers
             return _context.Images.ToList();
         }
 
-        [HttpPost]
-        [Route("dik25dWhR6")]
-        public async Task<IActionResult> PostImagesData ([FromBody] Images[] input)
-        {
-              foreach (var x in input)
-            {
-                var newVal = new Images();
-                newVal.Id = new Guid();
-                newVal.Author = x.Author;
-                newVal.Filename = x.Filename;
-                newVal.Link = x.Link;
-                newVal.Link_Mobile = x.Link_Mobile;
-                newVal.UploadDate = DateTime.Now;
-                newVal.Title = x.Title;
-                newVal.Downloaded = 0;
-                _context.Images.Add(newVal);
-                await _context.SaveChangesAsync();
-            }
-            return Ok();
-        }
-
-        [HttpPut]
-        [Route("aNho5iy0Ve")]
-        public async Task<IActionResult> PutDataImage([FromBody] Images input, [FromQuery] Guid id)
-        {
-            var findId = _context.Images.Where(x => x.Id == id).FirstOrDefault();
-            if(findId != null)
-            {
-                findId.Link = input.Link;
-                findId.Link_Mobile = input.Link_Mobile;
-                findId.Title = input.Title;
-                findId.UploadDate = input.UploadDate;
-                findId.Author = input.Author;
-                findId.Filename = input.Filename;
-                _context.Entry(findId).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
-            }
-            return Ok();
-        }
-
         [HttpGet]
         [Route("aCIJI6W7jp")]
         public IActionResult SortImagesByTimeAscending()
@@ -114,20 +74,6 @@ namespace designyeuh_api.Controllers
             _context.Images.Update(find);
             await _context.SaveChangesAsync();
             return Ok();
-        }
-
-        [HttpDelete]
-        [Route("dPSfTOsrEa")]
-        public async Task<IActionResult> DeleteImage ([FromQuery] Guid id) {
-            var findId = await _context.Images.FindAsync(id);
-            if (findId == null) {
-                return NotFound ();
-            }
-
-            _context.Images.Remove (findId);
-            await _context.SaveChangesAsync ();
-
-            return Ok (findId);
         }
     }
 }

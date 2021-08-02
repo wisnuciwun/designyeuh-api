@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using designyeuh_api.Authentication;
 using designyeuh_api.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 namespace designyeuh_api.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/byg7Gvd%hfjam&n8BEU5r77Q")]
     [EnableCors("CorsPolicy")]
     public class UsersController : Controller
@@ -28,24 +31,33 @@ namespace designyeuh_api.Controllers
             return _context.AspNetUsers.ToList();
         }
 
+        // [HttpGet]
+        // [Route("xheFS312s5")]
+        // public async Task<IActionResult> GetUserFavorites([FromQuery] string username)
+        // {
+        //     var usernameData = await _context.AspNetUsers.Select(x => x.Interest_Item).ToListAsync();
 
-        [HttpPut]
-        [Route("SNhhB1KYCc")]
-        public async Task<IActionResult> PutDataUser([FromBody] AspNetUsers input, [FromQuery] Guid id)
-        {
-            var findId = _context.AspNetUsers.Where(x => x.Id == id).FirstOrDefault();
-            if(findId != null)
-            {
-                findId.UserName = input.UserName;
-                findId.Born = input.Born;
-                findId.Nationality = input.Nationality;
-                findId.Password = input.Password;
-                findId.Role_Privileges = input.Role_Privileges;
-                _context.Entry(findId).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
-            }
-            return Ok();
-        }
+        //     string
+        // }
+
+
+        // [HttpPut]
+        // [Route("SNhhB1KYCc")]
+        // public async Task<IActionResult> PutDataUser([FromBody] AspNetUsers input, [FromQuery] Guid id)
+        // {
+        //     var findId = _context.AspNetUsers.Where(x => x.Id == id).FirstOrDefault();
+        //     if(findId != null)
+        //     {
+        //         findId.UserName = input.UserName;
+        //         findId.Born = input.Born;
+        //         findId.Nationality = input.Nationality;
+        //         // findId.Password = input.Password;
+        //         findId.Role_Privileges = input.Role_Privileges;
+        //         _context.Entry(findId).State = EntityState.Modified;
+        //         await _context.SaveChangesAsync();
+        //     }
+        //     return Ok();
+        // }
 
         [HttpDelete]
         [Route("wlcBSH0EA1")]

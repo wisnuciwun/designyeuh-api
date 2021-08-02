@@ -11,7 +11,6 @@ using Microsoft.EntityFrameworkCore;
 namespace designyeuh_api.Controllers
 {
     [ApiController]
-    [Authorize]//giniin tiap api
     [Route("api/xY9bN@KVMtk%zYwMMZUR5m&LS")]
     [EnableCors("CorsPolicy")]
     public class ResumesController : Controller
@@ -30,44 +29,6 @@ namespace designyeuh_api.Controllers
             return _context.Resumes.ToList();
         }
 
-        [HttpPost]
-        [Route("TwcHvQWwS6")]
-        public async Task<IActionResult> PostResumesData ([FromBody] Resumes[] input)
-        {
-            foreach (var x in input)
-            {
-                var newVal = new Resumes();
-                newVal.Id = new Guid();
-                newVal.Author = x.Author;
-                newVal.Filename = x.Filename;
-                newVal.Link = x.Link;
-                newVal.UploadDate = DateTime.Now;
-                newVal.Title = x.Title;
-                newVal.Downloaded = 0;
-
-                _context.Resumes.Add(newVal);
-                await _context.SaveChangesAsync();
-            }
-            return Ok();
-        }
-
-        [HttpPut]
-        [Route("KROBFzOhPN")]
-        public async Task<IActionResult> PutDataResume([FromBody] Resumes input, [FromQuery] Guid id)
-        {
-            var findId = _context.Resumes.Where(x => x.Id == id).FirstOrDefault();
-            if(findId != null)
-            {
-                findId.Link = input.Link;
-                findId.Title = input.Title;
-                findId.UploadDate = input.UploadDate;
-                findId.Author = input.Author;
-                findId.Filename = input.Filename;
-                _context.Entry(findId).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
-            }
-            return Ok();
-        }
 
         [HttpGet]
         [Route("r2ImyKmxUZ")]
@@ -115,20 +76,6 @@ namespace designyeuh_api.Controllers
             _context.Resumes.Update(find);
             await _context.SaveChangesAsync();
             return Ok();
-        }
-
-        [HttpDelete]
-        [Route("5FCFfRqbqO")]
-        public async Task<IActionResult> DeleteResume ([FromQuery] Guid id) {
-            var findId = await _context.Resumes.FindAsync(id);
-            if (findId == null) {
-                return NotFound ();
-            }
-
-            _context.Resumes.Remove (findId);
-            await _context.SaveChangesAsync ();
-
-            return Ok (findId);
         }
     }
 }
