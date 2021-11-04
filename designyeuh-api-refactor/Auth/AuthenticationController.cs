@@ -24,7 +24,7 @@ using MailKit.Security;
 namespace designyeuh_api_refactor.Controllers
 {
     [ApiController]
-    [Route("api/cBdhiu^jfw%bfah*8TC4uTdd9f")]
+    [Route("api/amRd2xPxrZeDe8K")]
     [EnableCors("CorsPolicy")]
     public class AuthenticationController : ControllerBase
     {

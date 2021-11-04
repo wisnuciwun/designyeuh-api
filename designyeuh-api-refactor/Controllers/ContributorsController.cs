@@ -11,7 +11,7 @@ namespace designyeuh_api_refactor.Controllers
 {
     [ApiController]
     [Route("api/GZKHwxPb8lxoIhQ")]
-    // [EnableCors("CorsPolicy")]
+    [EnableCors("CorsPolicy")]
     public class ContributorsController : Controller
     {
         private readonly MasterContext _context;

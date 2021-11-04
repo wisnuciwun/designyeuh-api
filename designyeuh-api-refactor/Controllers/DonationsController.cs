@@ -11,7 +11,7 @@ namespace designyeuh_api_refactor.Controllers
 {
     [ApiController]
     [Route("api/I2qUaJ6OtpdCOJy")]
-    // [EnableCors("CorsPolicy")]
+    [EnableCors("CorsPolicy")]
     public class DonationsController : Controller
     {
         private readonly MasterContext _context;

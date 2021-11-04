@@ -14,7 +14,7 @@ namespace designyeuh_api_refactor.Controllers
     [ApiController]
     [Authorize(Roles = UserRoles.Admin)]
     [Route("api/x5eYKp9V1qGnyrt")]
-    // [EnableCors("CorsPolicy")]
+    [EnableCors("CorsPolicy")]
     public class AdministratorController : Controller
     {
         private readonly MasterContext _context;

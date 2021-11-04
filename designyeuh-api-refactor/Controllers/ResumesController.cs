@@ -12,7 +12,7 @@ namespace designyeuh_api_refactor.Controllers
 {
     [ApiController]
     [Route("api/wq2JW1dFsZBXK5B")]
-    // [EnableCors("CorsPolicy")]
+    [EnableCors("CorsPolicy")]
     public class ResumesController : ControllerBase
     {
         private readonly MasterContext _context;

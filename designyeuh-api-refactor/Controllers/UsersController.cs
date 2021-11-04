@@ -14,7 +14,7 @@ namespace designyeuh_api_refactor.Controllers
     [ApiController]
     [Authorize]
     [Route("api/TKhp86kus08brnJ")]
-    // [EnableCors("CorsPolicy")]
+    [EnableCors("CorsPolicy")]
     public class UsersController : Controller
     {
         private readonly MasterContext _context;

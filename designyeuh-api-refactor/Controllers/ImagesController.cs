@@ -11,7 +11,7 @@ namespace designyeuh_api_refactor.Controllers
 {
     [ApiController]
     [Route("api/Uf5CE2eTK5yeDdi")]
-    // [EnableCors("CorsPolicy")]
+    [EnableCors("CorsPolicy")]
     public class ImagesController : Controller
     {
         private readonly MasterContext _context;
