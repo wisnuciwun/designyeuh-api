@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace designyeuh_api.Models
+namespace designyeuh_api_refactor.Models
 {
     [Table("Donations")]
     public class Donations

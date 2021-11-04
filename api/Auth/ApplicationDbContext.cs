@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace designyeuh_api.Authentication
+namespace designyeuh_api_refactor.Authentication
 {
     public class ApplicationDbContext:IdentityDbContext<ApplicationUser>
     {

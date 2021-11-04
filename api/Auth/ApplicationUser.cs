@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using designyeuh_api.Models;
+using designyeuh_api_refactor.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace designyeuh_api.Authentication
+namespace designyeuh_api_refactor.Authentication
 {
     public class ApplicationUser : IdentityUser
     {

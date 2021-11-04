@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace designyeuh_api.Models
+namespace designyeuh_api_refactor.Models
 {
     public class MasterContext : DbContext
     {

@@ -2,24 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using designyeuh_api.Models;
+using designyeuh_api_refactor.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace designyeuh_api.Controllers
+namespace designyeuh_api_refactor.Controllers
 {
     [ApiController]
-    [Route("api/xY9bN@KVMtk%zYwMMZUR5m&LS")]
-    [EnableCors("CorsPolicy")]
-    public class ResumesController : Controller
+    [Route("api/wq2JW1dFsZBXK5B")]
+    // [EnableCors("CorsPolicy")]
+    public class ResumesController : ControllerBase
     {
         private readonly MasterContext _context;
 
         public ResumesController(MasterContext context)
         {
             _context = context;
+        }
+
+        [HttpGet]
+        [Route("test")]
+        public IActionResult Servertest()
+        {
+            return new ObjectResult("OK");
         }
 
         [HttpGet]

@@ -2,19 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using designyeuh_api.Authentication;
-using designyeuh_api.Models;
+using designyeuh_api_refactor.Authentication;
+using designyeuh_api_refactor.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace designyeuh_api.Controllers
+namespace designyeuh_api_refactor.Controllers
 {
     [ApiController]
     [Authorize]
-    [Route("api/byg7Gvd%hfjam&n8BEU5r77Q")]
-    [EnableCors("CorsPolicy")]
+    [Route("api/TKhp86kus08brnJ")]
+    // [EnableCors("CorsPolicy")]
     public class UsersController : Controller
     {
         private readonly MasterContext _context;

@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace designyeuh_api.Authentication
+namespace designyeuh_api_refactor.Authentication
 {
     public static class UserRoles
     {

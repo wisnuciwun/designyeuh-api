@@ -5,9 +5,9 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using designyeuh_api.Authentication;
-using designyeuh_api.DTO;
-using designyeuh_api.Models;
+using designyeuh_api_refactor.Authentication;
+using designyeuh_api_refactor.DTO;
+using designyeuh_api_refactor.Models;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +21,7 @@ using MimeKit;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 
-namespace designyeuh_api.Controllers
+namespace designyeuh_api_refactor.Controllers
 {
     [ApiController]
     [Route("api/cBdhiu^jfw%bfah*8TC4uTdd9f")]

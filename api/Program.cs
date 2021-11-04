@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace designyeuh_api
+namespace designyeuh_api_refactor
 {
     public class Program
     {
